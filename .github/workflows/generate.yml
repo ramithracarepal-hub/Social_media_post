@@ -1,0 +1,28 @@
+name: Generate upcoming posts
+on:
+  schedule:
+    - cron: '30 18 * * *'   # 00:00 IST daily
+  workflow_dispatch:
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm install --omit=dev
+      - run: node src/generate.js
+        env:
+          FIREBASE_SERVICE_ACCOUNT_B64: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_B64 }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          IMAGE_MODE: ${{ vars.IMAGE_MODE || 'card' }}
+          BRAND_NAME: ${{ vars.BRAND_NAME || 'My Brand' }}
+          NICHE: ${{ vars.NICHE || 'productivity tips' }}
+          TONE: ${{ vars.TONE || 'friendly and concise' }}
+          AUDIENCE: ${{ vars.AUDIENCE || 'general audience' }}
+          POST_HOURS: ${{ vars.POST_HOURS || '9,19' }}
+          TZ_OFFSET_MIN: ${{ vars.TZ_OFFSET_MIN || '330' }}
+          DAYS_AHEAD: ${{ vars.DAYS_AHEAD || '3' }}

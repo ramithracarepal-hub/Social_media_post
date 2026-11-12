@@ -1,0 +1,48 @@
+import sharp from 'sharp';
+
+const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+function wrap(text, maxChars) {
+  const words = text.split(/\s+/);
+  const lines = [];
+  let line = '';
+  for (const w of words) {
+    if ((line + ' ' + w).trim().length > maxChars) { lines.push(line.trim()); line = w; }
+    else line += ' ' + w;
+  }
+  if (line.trim()) lines.push(line.trim());
+  return lines;
+}
+
+const PALETTES = [
+  ['#6a11cb', '#2575fc'], ['#f7971e', '#ff512f'], ['#11998e', '#38ef7d'],
+  ['#fc466b', '#3f5efb'], ['#0f2027', '#2c5364'], ['#ee0979', '#ff6a00'],
+  ['#0f766e', '#14b8a6'], ['#1d4ed8', '#38bdf8'], ['#0f2027', '#2c5364'],
+  ['#15803d', '#4ade80'], ['#6d28d9', '#a78bfa'],
+];
+];
+
+/** Free fallback: gradient card with the headline. Returns a 1080x1080 JPEG Buffer. */
+export async function makeCard(headline, brandName) {
+  const [c1, c2] = PALETTES[Math.floor(Math.random() * PALETTES.length)];
+  const lines = wrap(headline, 18);
+  const fontSize = 92;
+  const lineH = 112;
+  const startY = 540 - ((lines.length - 1) * lineH) / 2;
+  const text = lines
+    .map((l, i) => `<text x="540" y="${startY + i * lineH}" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="${fontSize}" fill="#fff">${esc(l)}</text>`)
+    .join('');
+  const svg = `<svg width="1080" height="1080" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs>
+    <rect width="1080" height="1080" fill="url(#g)"/>
+    ${text}
+    <text x="540" y="1010" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="36" fill="#ffffffcc">${esc(brandName)}</text>
+  </svg>`;
+  return sharp(Buffer.from(svg)).jpeg({ quality: 90 }).toBuffer();
+}
+
+/** Instagram wants JPEG. Normalise any image to 1080x1080 JPEG. */
+export async function toJpeg(buffer) {
+  return sharp(buffer).resize(1080, 1080, { fit: 'cover' }).jpeg({ quality: 90 }).toBuffer();
+}

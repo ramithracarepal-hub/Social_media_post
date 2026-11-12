@@ -1,0 +1,123 @@
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+^C^C
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+^C
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+^C^C
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+^C^C
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+1 post(s) due
+facebook failed ig_20261111_19: Facebook 400: {"message":"Error validating access token: Session has expired on Tuesday, 10-Nov-26 00:00:00 PST. The current time is Wednesday, 11-Nov-26 05:34:25 PST.","type":"OAuthException","code":190,"error_subcode":463,"fbtrace_id":"AkA-rkszct6Xp-xQPVq888b"}
+instagram ok ig_20261111_19 -> 17968107947980366
+ig_20261111_19 incomplete (attempt 1)
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+1 post(s) due
+facebook failed ig_20261111_19: Facebook 400: {"message":"Error validating access token: Session has expired on Tuesday, 10-Nov-26 00:00:00 PST. The current time is Wednesday, 11-Nov-26 05:49:24 PST.","type":"OAuthException","code":190,"error_subcode":463,"fbtrace_id":"Aoo_yiKpwD-eDiTzHkVkQhw"}
+ig_20261111_19 incomplete (attempt 2)
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+1 post(s) due
+facebook failed ig_20261111_19: Facebook 400: {"message":"Error validating access token: Session has expired on Tuesday, 10-Nov-26 00:00:00 PST. The current time is Wednesday, 11-Nov-26 06:04:20 PST.","type":"OAuthException","code":190,"error_subcode":463,"fbtrace_id":"A28x12o_Nw-4tk9xGF3XFMn"}
+ig_20261111_19 incomplete (attempt 3)
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
+
+> social-autoposter@1.0.0 publish
+> node src/publish.js
+
+0 post(s) due
